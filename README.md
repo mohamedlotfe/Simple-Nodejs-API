@@ -1,6 +1,5 @@
 # Simple-Nodejs-API
  
-# Products-Backend
 A simple endpoint with nodejs and express quering MongoDB Database using Mongoose ODM
 
 
