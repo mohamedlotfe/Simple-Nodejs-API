@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "9d218f7e-d6cd-4a75-8da9-99a3c0bf0cc6",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get customer by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/api/customers/6073ef4e01e11cc987694c36",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"customers",
+						"6073ef4e01e11cc987694c36"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer\":{\r\n        \"name\":\"customer 1001\",\r\n        \"city\": \"Giza\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update customer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer\":{\r\n        \"name\":\"customer 1111\",\r\n        \"city\": \"Giza\",\r\n        \"product_id\": \"6073ef9764806af33fd4bb97\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/customers/6074bbf690e46129443dd7ac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"customers",
+						"6074bbf690e46129443dd7ac"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete customer by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/api/customers/6074bbf690e46129443dd7ac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"customers",
+						"6074bbf690e46129443dd7ac"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "see product and or company for a given city",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"searchkey\": \"city\",\r\n    \"searchValue\": \"usa\",\r\n    \"selectionList\": [\r\n        \"city\",\r\n        \"product\",\r\n        \"company\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/searchwithCity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"searchwithCity"
+					]
+				},
+				"description": "you can update \"selectionList\" : [\"city\",\"product\",\"company\"] to get what you need.\r\n \r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "given a company name, return the city ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"searchkey\": \"company\",\r\n    \"searchValue\": \"Space\",\r\n    \"selectionList\": [\r\n        \"city\",\r\n        \"company\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/searchwithCity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"searchwithCity"
+					]
+				},
+				"description": "according to task description no details related to  company had most sales"
+			},
+			"response": []
+		},
+		{
+			"name": "given the customer, or list of customers, return the companies, and products they bought",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"searchkey\" :\"customer\", \"matchList\" : [\"cust\",\"customer\"] \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/searchWithCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"searchWithCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Given a company name, or multiple companies, return a list of its customers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"searchkey\" :\"company\", \"matchList\" : [\"spa\"] \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/api/searchWithCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"api",
+						"searchWithCustomer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
